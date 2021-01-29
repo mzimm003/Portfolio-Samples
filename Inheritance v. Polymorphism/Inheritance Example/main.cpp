@@ -1,7 +1,7 @@
 //Mark Zimmerman
 //Class assignment exampling Inheritance
 //(Revisions have been made to prevent identification of the specific assignment providing for potentially silly naming convention)
-//The Incredibly Temporary Roledex will take user input for various information about as many people as the user wishes to store.
+//The Incredibly Temporary Rolodex will take user input for various information about as many people as the user wishes to store.
 //Ultimately, this information will be compiled and provided back to the user in a grid report
 
 #include <iostream>
@@ -9,13 +9,13 @@
 #include "MortalInfo.h"
 #include "UndergradInfo.h"
 
-void fillRoledex(MortalInfo** roledex, int roledexSize);
-void printRoledex(MortalInfo** roledex, int roledexSize);
+void fillRolodex(MortalInfo** rolodex, int rolodexSize);
+void printRolodex(MortalInfo** rolodex, int rolodexSize);
 
 int main() {
-	//Get user input on number of people to store in roledex
+	//Get user input on number of people to store in rolodex
 	int numOfPeople = -1;
-	std::cout << "Welcome to the incredibly temporary Roledex.\n";
+	std::cout << "Welcome to the incredibly temporary Rolodex.\n";
 	std::cout << "How many people would you like to keep track of (while this program is running):\n";
 
 	//validate for countable number of persons
@@ -31,25 +31,25 @@ int main() {
 
 	std::cout << "Excellent. We will now begin the entry process for your " << numOfPeople << " people.\n";
 
-	MortalInfo** roledex = new MortalInfo*[numOfPeople]; //Array to store MortalInfo and UndergradInfo objects
+	MortalInfo** rolodex = new MortalInfo*[numOfPeople]; //Array to store MortalInfo and UndergradInfo objects
 
-	fillRoledex(roledex, numOfPeople);
+	fillRolodex(rolodex, numOfPeople);
 
 	std::cout << "\nThank you!\n";
 
-	printRoledex(roledex, numOfPeople);
+	printRolodex(rolodex, numOfPeople);
 
 	//Deallocate memory
 	for (int i = 0; i < numOfPeople; i++) {
-		delete roledex[i];
+		delete rolodex[i];
 	}
-	delete[] roledex;
+	delete[] rolodex;
 	return 0;
 }
 
-//Takes user input for each person in the roledex
-void fillRoledex(MortalInfo** roledex, int roledexSize) {
-	for (int i = 0; i < roledexSize; i++) {
+//Takes user input for each person in the rolodex
+void fillRolodex(MortalInfo** rolodex, int rolodexSize) {
+	for (int i = 0; i < rolodexSize; i++) {
 		std::string initialName,
 			finalName,
 			houseLocation,
@@ -95,16 +95,16 @@ void fillRoledex(MortalInfo** roledex, int roledexSize) {
 			if (isFreshman == 'Y' || isFreshman == 'y') {
 				newEnrollee = true;
 			}
-			roledex[i] = new UndergradInfo(initialName, finalName, houseLocation, municipality, commonwealth, zoneImprovementPlanID, contactNumber, ID, newEnrollee);
+			rolodex[i] = new UndergradInfo(initialName, finalName, houseLocation, municipality, commonwealth, zoneImprovementPlanID, contactNumber, ID, newEnrollee);
 		}
 		else {
-			roledex[i] = new MortalInfo(initialName, finalName, houseLocation, municipality, commonwealth, zoneImprovementPlanID, contactNumber);
+			rolodex[i] = new MortalInfo(initialName, finalName, houseLocation, municipality, commonwealth, zoneImprovementPlanID, contactNumber);
 		}
 		std::cout << std::endl;
 	}
 }
 
-void printRoledex(MortalInfo** roledex, int roledexSize) {
+void printRolodex(MortalInfo** rolodex, int rolodexSize) {
 	//Set information report column width parameters
 	int reportCol1Size = 12,
 		reportCol2Size = 15,
@@ -117,7 +117,7 @@ void printRoledex(MortalInfo** roledex, int roledexSize) {
 		reportCol9Size = 5;
 
 	//Output information report
-	std::cout << "\nHere is your roledex:\n";
+	std::cout << "\nHere is your rolodex:\n";
 	//Headers
 	std::cout << std::left << std::setw(reportCol1Size) << "First Name"
 		<< std::left << std::setw(reportCol2Size) << "Last Name"
@@ -129,9 +129,9 @@ void printRoledex(MortalInfo** roledex, int roledexSize) {
 		<< std::left << std::setw(reportCol8Size) << "Student ID"
 		<< std::left << std::setw(reportCol9Size) << "Incoming Freshman";
 	std::cout << std::endl;
-	//Roledex content
-	for (int i = 0; i < roledexSize; i++) {
-		roledex[i]->print(reportCol1Size, reportCol2Size, reportCol3Size, reportCol4Size, reportCol5Size, reportCol6Size, reportCol7Size, reportCol8Size, reportCol9Size);
+	//Rolodex content
+	for (int i = 0; i < rolodexSize; i++) {
+		rolodex[i]->print(reportCol1Size, reportCol2Size, reportCol3Size, reportCol4Size, reportCol5Size, reportCol6Size, reportCol7Size, reportCol8Size, reportCol9Size);
 		std::cout << std::endl;
 	}
 }

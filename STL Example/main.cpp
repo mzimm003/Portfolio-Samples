@@ -10,6 +10,8 @@
 #include <string>
 #include <stack>
 
+
+
 void displayCode(std::istream& file);
 bool verifyFileSymmetry(std::istream& file);
 void communicatePair(std::stack<int>& pairStackLine, std::stack<std::string>& pairStack, std::string open, std::string close);
@@ -23,16 +25,23 @@ std::string uncertainOpener(std::istream& context, char potentialOpener);
 int main() {
 	std::string fileName;
 	std::cout << "Please enter name of file to be compiled: ";
-	std::cin >> fileName;
+	getline(std::cin, fileName);
+	std::cout << std::endl;
 
 	std::ifstream infile(fileName);
 	if (!infile) {
 		std::cerr << "Error: cannot open " << fileName << "!" << std::endl;
+		std::cout << "Press any key to quit..." << std::endl;
+		std::cin.get();
 		return -1;
 	}
 
 	displayCode(infile);
+	std::cout << std::endl;
 	verifyFileSymmetry(infile);
+	std::cout << std::endl;
+	std::cout << "Press any key to quit..." << std::endl;
+	std::cin.get();
 
 	return 0;
 }

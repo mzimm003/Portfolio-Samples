@@ -351,3 +351,13 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Any Installer projects (produced installer will be copied to the readme contents file
+*[Ii]nstaller/
+/Conway's Game of Life/nbproject/private/
+/Conway's Game of Life/Project/nbproject/private/
+
+#Additional Visual Studio blocks
+*.sln
+*.vcxproj
+*.vcxproj.filters

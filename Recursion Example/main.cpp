@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -31,17 +32,19 @@ int main()
     int nwords;                // number of words read from lexicon
     string word;
     
-    
-    lexfile.open("words.txt");
+    string lexicon = "words.txt"; //default file
+
+    lexfile.open(lexicon);
     if (!lexfile) {
-        cout << "File not found!" << endl;
+        cout << "File " << lexicon << " not found!" << endl;
         return (1);
     }
     
     nwords = fillLex(lexfile, lex);
+    lexfile.close();
     
     cout << "Please enter a string for an anagram: ";
-    cin >> word;
+    getline(std::cin, word);
 
     int numMatches = logCombos(word, lex, nwords, products);
     if (!numMatches)
@@ -49,7 +52,9 @@ int main()
     else
         showProducts(products, numMatches);
 
-    lexfile.close();
+    cout << "Press any key to quit..." << endl;
+    cin.get();
+
 	return 0;
 }
 

@@ -11,3 +11,7 @@ Paralegal::Paralegal(std::string name) : JobHolder(name, 144230.00) {
 Paralegal::~Paralegal() {
 
 }
+
+std::string Paralegal::jobDescription() {
+	return "provides assistance for lawyers";
+}

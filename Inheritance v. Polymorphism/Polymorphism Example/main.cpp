@@ -34,6 +34,8 @@ int main() {
 }
 
 void printSalary(JobHolder* person) {
-	std::cout << std::fixed << std::setprecision(2) << person->getName() << " makes $" << person->getSalary() << " per year.\n";
+	std::cout << std::fixed << std::setprecision(2) << person->getName()
+		<< " who " << person->jobDescription()
+		<< ", makes $" << person->getSalary() << " per year.\n";
 	std::cout << "That's $" << person->salaryPerWeek() << " per week!\n";
 }

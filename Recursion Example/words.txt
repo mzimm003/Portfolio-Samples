@@ -600,6 +600,7 @@ Alec
 Aleck
 aleph
 alert
+alerting
 alewife
 Alex
 Alexander
@@ -739,6 +740,7 @@ alter
 alterate
 alteration
 altercate
+altering
 alterman
 altern
 alternate
@@ -18900,6 +18902,7 @@ rejoice
 rejoinder
 rejuvenate
 relate
+relating
 relaxation
 relayed
 releasable

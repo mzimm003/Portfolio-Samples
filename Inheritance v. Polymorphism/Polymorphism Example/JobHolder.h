@@ -22,6 +22,9 @@ public:
 
 	//returns a JobHolder's salary per week assuming 52 weeks in a year
 	double salaryPerWeek();
+
+	//returns a short description of a JobHolder's duty
+	virtual std::string jobDescription() = 0;
 private:
 	std::string m_name;
 	double m_salary;

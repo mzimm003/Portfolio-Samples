@@ -10,6 +10,9 @@ public:
 	Nurse();
 	Nurse(std::string name);
 	virtual ~Nurse();
+
+	//returns a short description of a JobHolder's duty
+	virtual std::string jobDescription();
 };
 
 #endif //!NURSE_H
